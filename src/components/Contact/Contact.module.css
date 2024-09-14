@@ -1,0 +1,28 @@
+.contactContainer {
+  width: 325px;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contactWraper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  max-width: 215px;
+  overflow: hidden;
+}
+
+.contactWraper:first-child {
+  margin-bottom: 10px;
+}
+
+.contactBtn {
+  min-width: 80px;
+}

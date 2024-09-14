@@ -1,0 +1,46 @@
+.formContainer {
+  width: 360px;
+  padding: 10px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.formWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 18px;
+}
+
+.formInput {
+  height: 26px;
+  border: 2px solid gray;
+  transition: border-color 250ms linear;
+  outline: none;
+  border-radius: 4px;
+  padding: 0 10px;
+  font-size: 18px;
+}
+
+.formInput:hover,
+.formInput:focus {
+  border-color: blue;
+}
+
+.formError {
+  color: red;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.formBtn {
+  align-self: center;
+  width: 120px;
+}

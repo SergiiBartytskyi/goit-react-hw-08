@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 360px;
+  height: 26px;
+  border: 2px solid rgb(128, 128, 128);
+  transition: border-color 250ms linear;
+  outline: none;
+  border-radius: 4px;
+  padding: 0 10px;
+  font-size: 18px;
+}
+
+.searchInput:hover,
+.searchInput:focus {
+  border-color: blue;
+}
