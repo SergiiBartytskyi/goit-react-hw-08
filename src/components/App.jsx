@@ -8,9 +8,11 @@ import { refreshUser } from "../redux/auth/operations";
 import { selectIsRefreshing } from "../redux/auth/slice";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
-const RegisterPage = lazy(() => import("../pages/RegisterPage/RegisterPage"));
+const RegistrationPage = lazy(() =>
+  import("../pages/RegistrationPage/RegistrationPage")
+);
 const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
-const ContactPage = lazy(() => import("../pages/ContactPage/ContactPage"));
+const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -31,7 +33,7 @@ const App = () => {
           element={
             <RestrictedRoute
               redirectTo="/contacts"
-              component={<RegisterPage />}
+              component={<RegistrationPage />}
             />
           }
         />
@@ -44,7 +46,7 @@ const App = () => {
         <Route
           path="/contacts"
           element={
-            <PrivateRoute redirectTo="/login" component={<ContactPage />} />
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
       </Routes>

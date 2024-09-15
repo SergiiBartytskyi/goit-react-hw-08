@@ -1,7 +1,7 @@
 import DocumentTitle from "../../components/DocumentTitle";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 
-const RegisterPage = () => {
+const RegistrationPage = () => {
   return (
     <div>
       <DocumentTitle>Registration</DocumentTitle>
@@ -10,4 +10,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default RegistrationPage;

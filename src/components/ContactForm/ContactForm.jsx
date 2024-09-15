@@ -7,7 +7,7 @@ import css from "./ContactForm.module.css";
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, "Too Short!")
+    // .min(2, "Too Short!")
     .max(22, "Too Long!")
     .required("Required"),
   number: Yup.string()
@@ -20,13 +20,14 @@ const FeedbackSchema = Yup.object().shape({
     .required("Required"),
 });
 
-const ContactForm = () => {
+const ContactForm = ({ onFormSubmit }) => {
   const dispatch = useDispatch();
   const userNameId = useId();
   const userNumber = useId();
 
   const handleSubmit = (values, actions) => {
     dispatch(addContact(values));
+    onFormSubmit();
     actions.resetForm();
   };
 
@@ -38,7 +39,9 @@ const ContactForm = () => {
     >
       <Form className={css.formContainer}>
         <div className={css.formWrap}>
-          <label htmlFor={userNameId}>Name</label>
+          <label htmlFor={userNameId} className={css.label}>
+            Name
+          </label>
           <Field
             type="text"
             className={css.formInput}
@@ -53,7 +56,9 @@ const ContactForm = () => {
         </div>
 
         <div className={css.formWrap}>
-          <label htmlFor={userNumber}>Number</label>
+          <label htmlFor={userNumber} className={css.label}>
+            Number
+          </label>
           <Field
             type="tel"
             className={css.formInput}

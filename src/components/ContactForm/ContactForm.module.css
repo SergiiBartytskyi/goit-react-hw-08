@@ -1,5 +1,4 @@
 .formContainer {
-  width: 360px;
   padding: 10px;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 4px;
@@ -7,7 +6,6 @@
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
 }
 
 .formWrap {
@@ -15,7 +13,7 @@
   flex-direction: column;
 }
 
-label {
+.label {
   font-size: 18px;
 }
 
