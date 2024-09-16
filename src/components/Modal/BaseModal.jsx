@@ -1,5 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { openModal, closeModal } from "../../redux/modal/slice";
+import {
+  openModal,
+  closeModal,
+  selectModalOpen,
+  selectEditingContact,
+} from "../../redux/modal/slice";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -20,7 +25,8 @@ const style = {
 
 const BaseModal = () => {
   const dispatch = useDispatch();
-  const open = useSelector((state) => state.modal.open);
+  const open = useSelector(selectModalOpen);
+  const editingContact = useSelector(selectEditingContact);
 
   const handleOpen = () => dispatch(openModal());
   const handleClose = () => dispatch(closeModal());
@@ -41,9 +47,12 @@ const BaseModal = () => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Add New Contact
+            {editingContact ? "Edit Contact" : "Add New Contact"}
           </Typography>
-          <ContactForm onFormSubmit={handleFormSubmit} />
+          <ContactForm
+            onFormSubmit={handleFormSubmit}
+            initialValues={editingContact || { name: "", number: "" }}
+          />
         </Box>
       </Modal>
     </div>

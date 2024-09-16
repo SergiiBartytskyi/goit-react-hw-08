@@ -38,23 +38,13 @@ export const deleteContact = createAsyncThunk(
   }
 );
 
-// export const clearContactsBackend = createAsyncThunk(
-//   "contacts/clearAll",
-//   async (_, thunkAPI) => {
-//     try {
-//       const response = (await axios.delete("/contacts")).data;
-//       return response;
-//     } catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );
-
 export const editContact = createAsyncThunk(
   "contacts/editContact",
-  async (contactId, thunkAPI) => {
+  async (contact, thunkAPI) => {
     try {
-      const response = (await axios.patch(`/contacts/${contactId}`)).data;
+      const { id, ...updatedFields } = contact;
+      const response = (await axios.patch(`/contacts/${id}`, updatedFields))
+        .data;
       return response;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/operations";
+import { addContact, editContact } from "../../redux/contacts/operations";
 import { useId } from "react";
 import * as Yup from "yup";
 import toast, { Toaster } from "react-hot-toast";
@@ -18,21 +18,26 @@ const FeedbackSchema = Yup.object().shape({
     .required("Required"),
 });
 
-const ContactForm = ({ onFormSubmit }) => {
+const ContactForm = ({ initialValues, onFormSubmit }) => {
   const dispatch = useDispatch();
   const userNameId = useId();
   const userNumber = useId();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContact(values));
-    toast.success("Contact successfully created!");
+    if (initialValues.id) {
+      dispatch(editContact(values));
+      toast.success("Contact successfully updated!");
+    } else {
+      dispatch(addContact(values));
+      toast.success("Contact successfully created!");
+    }
     onFormSubmit();
     actions.resetForm();
   };
 
   return (
     <Formik
-      initialValues={{ name: "", number: "" }}
+      initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={FeedbackSchema}
     >
@@ -72,7 +77,7 @@ const ContactForm = ({ onFormSubmit }) => {
         </div>
 
         <button type="submit" className={css.formBtn}>
-          Add contact
+          {initialValues.id ? "Edit" : "Add Contact"}
         </button>
         <Toaster />
       </Form>

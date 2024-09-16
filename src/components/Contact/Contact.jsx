@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { IoPersonOutline, IoPhonePortraitOutline } from "react-icons/io5";
-import { deleteContact, editContact } from "../../redux/contacts/operations";
+import { deleteContact } from "../../redux/contacts/operations";
+import { openModal } from "../../redux/modal/slice"; // Додаємо action для відкриття модалки
 import toast, { Toaster } from "react-hot-toast";
 import clsx from "clsx";
 import css from "./Contact.module.css";
@@ -38,7 +39,10 @@ const Contact = ({ contact }) => {
       }
     );
   };
-  // const handleEdit = () => dispatch(editContact(contact.id));
+
+  const handleEdit = () => {
+    dispatch(openModal(contact));
+  };
 
   return (
     <div className={css.contactContainer}>
@@ -53,7 +57,10 @@ const Contact = ({ contact }) => {
         </li>
       </ul>
       <div className={css.btnWrapper}>
-        <button className={clsx(css.contactBtn, css.contactBtnEdit)}>
+        <button
+          className={clsx(css.contactBtn, css.contactBtnEdit)}
+          onClick={handleEdit}
+        >
           Edit
         </button>
         <button
@@ -64,11 +71,7 @@ const Contact = ({ contact }) => {
         </button>
       </div>
       <div>
-        <Toaster
-        // toastOptions={{
-        //   duration: Infinity,
-        // }}
-        />
+        <Toaster />
       </div>
     </div>
   );
