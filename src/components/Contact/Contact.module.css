@@ -1,15 +1,23 @@
 .contactContainer {
   width: 325px;
-  height: 80px;
+  height: 90px;
   padding: 10px;
   border: 1px solid rgb(0, 0, 0);
   border-radius: 8px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .contactWraper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 215px;
+  overflow: hidden;
+}
+
+.contactItem {
+  height: 30px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -19,10 +27,36 @@
   overflow: hidden;
 }
 
-.contactWraper:first-child {
-  margin-bottom: 10px;
+.btnWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: auto;
 }
 
 .contactBtn {
-  min-width: 80px;
+  min-width: 65px;
+  transition: background-color 250ms linear;
+}
+
+.contactBtn:hover.contactBtnConfirm {
+  background-color: green;
+}
+
+.contactBtn:hover.contactBtnCancelBtn {
+  background-color: red;
+}
+
+.contactBtn:hover.contactBtnEdit {
+  background-color: yellow;
+}
+
+.tosterSpan {
+  text-align: center;
+}
+
+.toaster {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

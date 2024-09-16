@@ -11,6 +11,7 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import Loader from "../../components/Loader/Loader";
 import BaseModal from "../../components/Modal/BaseModal";
 import css from "./ContactsPage.module.css";
+// import ButtonDlt from "../../components/ButtonDlt/ButtonDlt";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const ContactsPage = () => {
 
       <div className={css.wrap}>
         <SearchBox />
+        {/* <ButtonDlt /> */}
         <BaseModal />
       </div>
       {isLoading && !error && <Loader />}

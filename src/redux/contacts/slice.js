@@ -5,6 +5,7 @@ import {
   addContact,
   deleteContact,
   editContact,
+  // clearContactsBackend,
 } from "./operations";
 
 const handlePending = (state) => {
@@ -49,6 +50,11 @@ const slice = createSlice({
         state.items.splice(idx, 1);
       })
       .addCase(deleteContact.rejected, handleRejected)
+      // .addCase(clearContactsBackend.pending, handlePending)
+      // .addCase(clearContactsBackend.fulfilled, (state) => {
+      //   state.items = []; // Очищаємо локальний масив контактів
+      // })
+      // .addCase(clearContactsBackend.rejected, handleRejected)
       .addCase(editContact.pending, handlePending)
       .addCase(editContact.fulfilled, (state, actions) => {
         state.loading = false;
@@ -61,6 +67,8 @@ const slice = createSlice({
       .addCase(editContact.rejected, handleRejected);
   },
 });
+
+// export const { clearContacts } = slice.actions;
 
 export const selectContacts = (state) => state.contacts.items;
 
