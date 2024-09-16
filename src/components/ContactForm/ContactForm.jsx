@@ -6,10 +6,7 @@ import * as Yup from "yup";
 import css from "./ContactForm.module.css";
 
 const FeedbackSchema = Yup.object().shape({
-  name: Yup.string()
-    // .min(2, "Too Short!")
-    .max(22, "Too Long!")
-    .required("Required"),
+  name: Yup.string().max(22, "Too Long!").required("Required"),
   number: Yup.string()
     .matches(
       /^\d{3}-\d{2}-\d{2}$/,
