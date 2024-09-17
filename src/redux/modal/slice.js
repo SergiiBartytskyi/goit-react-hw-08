@@ -20,7 +20,4 @@ const slice = createSlice({
 
 export const { openModal, closeModal } = slice.actions;
 
-export const selectModalOpen = (state) => state.modal.open;
-export const selectEditingContact = (state) => state.modal.editingContact;
-
 export default slice.reducer;

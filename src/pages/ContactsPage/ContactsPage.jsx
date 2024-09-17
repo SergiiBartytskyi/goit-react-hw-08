@@ -6,7 +6,7 @@ import { fetchContacts } from "../../redux/contacts/operations";
 import {
   selectContactsError,
   selectContactsLoading,
-} from "../../redux/contacts/slice";
+} from "../../redux/contacts/selectors";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import Loader from "../../components/Loader/Loader";
 import BaseModal from "../../components/BaseModal/BaseModal";

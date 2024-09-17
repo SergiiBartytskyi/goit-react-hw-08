@@ -1,5 +1,5 @@
-import { createSlice, createSelector } from "@reduxjs/toolkit";
-import { selectQueryFilter } from "../filters/slice";
+import { createSlice } from "@reduxjs/toolkit";
+import { logOut } from "../auth/operations";
 import {
   fetchContacts,
   addContact,
@@ -60,25 +60,13 @@ const slice = createSlice({
           state.items[idx] = actions.payload;
         }
       })
-      .addCase(editContact.rejected, handleRejected);
+      .addCase(editContact.rejected, handleRejected)
+      .addCase(logOut.fulfilled, (state) => {
+        state.loading = false;
+        state.error = null;
+        state.items = [];
+      });
   },
 });
-
-export const selectContacts = (state) => state.contacts.items;
-
-export const selectContactsLoading = (state) => state.contacts.loading;
-
-export const selectContactsError = (state) => state.contacts.error;
-
-export const selectFilteredContacts = createSelector(
-  [selectContacts, selectQueryFilter],
-  (contacts, query) => {
-    return contacts.filter(
-      (contact) =>
-        contact.name.toLowerCase().includes(query.toLowerCase()) ||
-        contact.number.includes(query)
-    );
-  }
-);
 
 export default slice.reducer;

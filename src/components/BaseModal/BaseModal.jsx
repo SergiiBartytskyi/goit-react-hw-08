@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
+import { openModal, closeModal } from "../../redux/modal/slice";
 import {
-  openModal,
-  closeModal,
   selectModalOpen,
   selectEditingContact,
-} from "../../redux/modal/slice";
+} from "../../redux/modal/selectors";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
