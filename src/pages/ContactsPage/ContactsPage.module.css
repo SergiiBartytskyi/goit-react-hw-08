@@ -6,7 +6,27 @@
 }
 
 .wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
+}
+
+.title {
+  font-size: 25px;
+}
+
+@media screen and (min-width: 375px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 2em;
+  }
 }

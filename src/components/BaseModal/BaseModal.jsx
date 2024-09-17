@@ -43,7 +43,12 @@ const BaseModal = () => {
         aria-labelledby="modal-modal-title"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            className={css.title}
+          >
             {editingContact ? "Edit Contact" : "Add New Contact"}
           </Typography>
           <ContactForm

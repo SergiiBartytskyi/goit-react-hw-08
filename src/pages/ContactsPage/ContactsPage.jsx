@@ -24,7 +24,7 @@ const ContactsPage = () => {
   return (
     <main className={css.container}>
       <DocumentTitle>Phonebook</DocumentTitle>
-      <h1>Phonebook</h1>
+      <h1 className={css.title}>Phonebook</h1>
 
       <div className={css.wrap}>
         <SearchBox />

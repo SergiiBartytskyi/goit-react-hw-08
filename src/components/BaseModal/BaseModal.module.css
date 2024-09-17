@@ -1,8 +1,8 @@
 .modalBtn {
-  height: 40px;
-  padding: 5px;
+  height: 30px;
+  padding: 5px 10px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 4px;
 
   cursor: pointer;
@@ -17,4 +17,11 @@
 .modalBtn:focus {
   background-color: orangered;
   border-color: rgb(0, 0, 0);
+}
+
+@media screen and (min-width: 768px) {
+  .modalBtn {
+    height: 40px;
+    font-size: 18px;
+  }
 }

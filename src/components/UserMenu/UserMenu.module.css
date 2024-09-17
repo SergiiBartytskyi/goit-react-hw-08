@@ -1,20 +1,26 @@
 .wrapper {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 12px;
+  gap: 10px;
 }
 
 .username {
   font-weight: 700;
 
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
 }
 
 .username>span {
   color: orangered;
+  margin-left: 5px;
 }
 
 .btn {
-  align-self: center;
   border: 2px solid orangered;
   transition: background-color 250ms linear, border-color 250ms linear;
 }
@@ -23,4 +29,19 @@
 .btn:focus {
   background-color: orangered;
   border-color: rgb(0, 0, 0);
+}
+
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+  }
+
+  .username {
+    font-size: 18px;
+  }
+
+  .btn {
+    font-size: 18px;
+  }
 }

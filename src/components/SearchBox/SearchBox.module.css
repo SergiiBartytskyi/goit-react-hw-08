@@ -5,7 +5,7 @@
 }
 
 .searchInput {
-  width: 360px;
+  width: 100%;
   height: 26px;
   border: 2px solid rgb(128, 128, 128);
   transition: border-color 250ms linear;
@@ -18,4 +18,10 @@
 .searchInput:hover,
 .searchInput:focus {
   border-color: blue;
+}
+
+@media screen and (min-width: 375px) {
+  .searchInput {
+    width: 360px;
+  }
 }

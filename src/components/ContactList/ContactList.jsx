@@ -7,9 +7,9 @@ const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
 
   return (
-    <ul className={css.contactsContainer}>
+    <ul className={css.gridList}>
       {contacts.map((contact) => (
-        <li key={contact.id} className={css.contactWraper}>
+        <li key={contact.id} className={css.gridItem}>
           <Contact contact={contact} />
         </li>
       ))}

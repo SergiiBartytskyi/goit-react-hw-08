@@ -36,7 +36,7 @@
 
 .formBtn {
   align-self: center;
-  width: 120px;
+  width: 80px;
   border: 2px solid orangered;
   transition: background-color 250ms linear, border-color 250ms linear;
 }
@@ -45,4 +45,11 @@
 .formBtn:focus {
   background-color: orangered;
   border-color: rgb(0, 0, 0);
+}
+
+@media screen and (min-width: 768px) {
+  .formBtn {
+    width: 120px;
+    font-size: 18px;
+  }
 }
