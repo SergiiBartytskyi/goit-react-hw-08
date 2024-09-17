@@ -19,11 +19,11 @@
 
 .link:hover,
 .link:focus {
-  color: orangered;
+  color: rgb(0 255 55);
 }
 
 .active {
-  color: orangered;
+  color: rgb(0 255 55);
 }
 
 @media screen and (min-width: 768px) {

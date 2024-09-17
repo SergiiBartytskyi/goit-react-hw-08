@@ -12,7 +12,8 @@
 }
 
 .title>span {
-  color: orangered;
+  color: rgb(0 255 55);
+  ;
 }
 
 @media screen and (min-width: 768px) {
