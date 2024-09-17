@@ -13,10 +13,6 @@
   flex-direction: column;
 }
 
-.label {
-  font-size: 18px;
-}
-
 .formInput {
   height: 26px;
   border: 2px solid gray;
@@ -41,4 +37,12 @@
 .formBtn {
   align-self: center;
   width: 120px;
+  border: 2px solid orangered;
+  transition: background-color 250ms linear, border-color 250ms linear;
+}
+
+.formBtn:hover,
+.formBtn:focus {
+  background-color: orangered;
+  border-color: rgb(0, 0, 0);
 }

@@ -2,7 +2,7 @@
   margin: 50px auto;
   width: 320px;
   padding: 10px;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid orangered;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -36,5 +36,12 @@
 
 .formBtn {
   align-self: center;
-  width: 120px;
+  border: 2px solid orangered;
+  transition: background-color 250ms linear, border-color 250ms linear;
+}
+
+.formBtn:hover,
+.formBtn:focus {
+  background-color: orangered;
+  border-color: rgb(0, 0, 0);
 }

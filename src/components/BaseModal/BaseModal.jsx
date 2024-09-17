@@ -28,21 +28,18 @@ const BaseModal = () => {
   const open = useSelector(selectModalOpen);
   const editingContact = useSelector(selectEditingContact);
 
-  const handleOpen = () => dispatch(openModal());
-  const handleClose = () => dispatch(closeModal());
-
   const handleFormSubmit = () => {
-    handleClose();
+    dispatch(closeModal());
   };
 
   return (
     <div>
-      <button className={css.modalBtn} onClick={handleOpen}>
+      <button className={css.modalBtn} onClick={() => dispatch(openModal())}>
         Add Contact
       </button>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={() => dispatch(closeModal())}
         aria-labelledby="modal-modal-title"
       >
         <Box sx={style}>

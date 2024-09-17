@@ -6,4 +6,21 @@
 
 .username {
   font-weight: 700;
+
+}
+
+.username>span {
+  color: orangered;
+}
+
+.btn {
+  align-self: center;
+  border: 2px solid orangered;
+  transition: background-color 250ms linear, border-color 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: orangered;
+  border-color: rgb(0, 0, 0);
 }

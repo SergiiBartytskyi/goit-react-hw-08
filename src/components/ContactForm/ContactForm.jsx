@@ -43,9 +43,7 @@ const ContactForm = ({ initialValues, onFormSubmit }) => {
     >
       <Form className={css.formContainer}>
         <div className={css.formWrap}>
-          <label htmlFor={userNameId} className={css.label}>
-            Name
-          </label>
+          <label htmlFor={userNameId}>Name</label>
           <Field
             type="text"
             className={css.formInput}
@@ -60,9 +58,7 @@ const ContactForm = ({ initialValues, onFormSubmit }) => {
         </div>
 
         <div className={css.formWrap}>
-          <label htmlFor={userNumber} className={css.label}>
-            Number
-          </label>
+          <label htmlFor={userNumber}>Number</label>
           <Field
             type="tel"
             className={css.formInput}

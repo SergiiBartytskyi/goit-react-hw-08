@@ -7,21 +7,21 @@ import css from "./RegistrationForm.module.css";
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, "Логін має містити мінімум 2 символи")
-    .max(20, "Логін має містити максимус 20 символів")
-    .trim("Не повинно бути пробілів")
-    .required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
+    .min(2, "The login must contain at least 2 characters")
+    .max(20, "The login must contain a maximum of 20 characters")
+    .trim("There should be no spaces")
+    .required("Required!"),
+  email: Yup.string().email("Invalid email").required("Required!"),
   password: Yup.string()
-    .min(7, "Пароль має містити мінімум 7 символів")
-    .matches(/[A-Z]/, "Пароль має містити хоча б одну велику літеру")
-    .matches(/[a-z]/, "Пароль має містити хоча б одну маленьку літеру")
-    .matches(/[0-9]/, "Пароль має містити хоча б одну цифру")
+    .min(7, "The password must contain at least 7 characters")
+    .matches(/[A-Z]/, "The password must contain at least one capital letter.")
+    .matches(/[a-z]/, "The password must contain at least one lowercase letter")
+    .matches(/[0-9]/, "The password must contain at least one number")
     .matches(
       /[@$!%*?&]/,
-      "Пароль має містити хоча б один спеціальний символ (@, $, !, %, *, ?, &)"
+      "The password must contain at least one special character (@, $, !, %, *, ?, &)"
     )
-    .required("Пароль є обов'язковим"),
+    .required("Required!"),
 });
 
 const RegistrationForm = () => {
@@ -43,9 +43,7 @@ const RegistrationForm = () => {
     >
       <Form className={css.formContainer}>
         <div className={css.formWrap}>
-          <label htmlFor={userName} className={css.label}>
-            Username
-          </label>
+          <label htmlFor={userName}>Username</label>
 
           <Field
             type="text"
@@ -62,9 +60,7 @@ const RegistrationForm = () => {
         </div>
 
         <div className={css.formWrap}>
-          <label htmlFor={userEmail} className={css.label}>
-            Email
-          </label>
+          <label htmlFor={userEmail}>Email</label>
 
           <Field
             type="email"
@@ -81,9 +77,7 @@ const RegistrationForm = () => {
         </div>
 
         <div className={css.formWrap}>
-          <label htmlFor={userPassword} className={css.label}>
-            Password
-          </label>
+          <label htmlFor={userPassword}>Password</label>
 
           <Field
             type="password"
@@ -100,7 +94,7 @@ const RegistrationForm = () => {
         </div>
 
         <button type="submit" className={css.formBtn}>
-          Log In
+          Create Account
         </button>
       </Form>
     </Formik>

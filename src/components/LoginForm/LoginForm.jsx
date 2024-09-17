@@ -6,17 +6,17 @@ import { logIn } from "../../redux/auth/operations";
 import css from "./LoginForm.module.css";
 
 const FeedbackSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email").required("Required"),
+  email: Yup.string().email("Invalid email").required("Required!"),
   password: Yup.string()
-    .min(7, "Пароль має містити мінімум 7 символів")
-    .matches(/[A-Z]/, "Пароль має містити хоча б одну велику літеру")
-    .matches(/[a-z]/, "Пароль має містити хоча б одну маленьку літеру")
-    .matches(/[0-9]/, "Пароль має містити хоча б одну цифру")
+    .min(7, "The password must contain at least 7 characters")
+    .matches(/[A-Z]/, "The password must contain at least one capital letter.")
+    .matches(/[a-z]/, "The password must contain at least one lowercase letter")
+    .matches(/[0-9]/, "The password must contain at least one number")
     .matches(
       /[@$!%*?&]/,
-      "Пароль має містити хоча б один спеціальний символ (@, $, !, %, *, ?, &)"
+      "The password must contain at least one special character (@, $, !, %, *, ?, &)"
     )
-    .required("Пароль є обов'язковим"),
+    .required("Required!"),
 });
 
 const LoginForm = () => {
@@ -44,9 +44,7 @@ const LoginForm = () => {
     >
       <Form className={css.formContainer}>
         <div className={css.formWrap}>
-          <label htmlFor={userEmail} className={css.label}>
-            Email
-          </label>
+          <label htmlFor={userEmail}>Email</label>
           <Field
             type="email"
             name="email"
@@ -60,9 +58,7 @@ const LoginForm = () => {
           />
         </div>
         <div className={css.formWrap}>
-          <label htmlFor={userPassword} className={css.label}>
-            Password
-          </label>
+          <label htmlFor={userPassword}>Password</label>
           <Field
             type="password"
             name="password"

@@ -1,0 +1,20 @@
+.modalBtn {
+  height: 40px;
+  padding: 5px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 4px;
+
+  cursor: pointer;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: 2px solid orangered;
+  transition: background-color 250ms linear, border-color 250ms linear;
+  text-transform: capitalize;
+}
+
+.modalBtn:hover,
+.modalBtn:focus {
+  background-color: orangered;
+  border-color: rgb(0, 0, 0);
+}

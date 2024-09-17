@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { IoPersonOutline, IoPhonePortraitOutline } from "react-icons/io5";
 import { deleteContact } from "../../redux/contacts/operations";
-import { openModal } from "../../redux/modal/slice"; // Додаємо action для відкриття модалки
+import { openModal } from "../../redux/modal/slice";
 import toast, { Toaster } from "react-hot-toast";
 import clsx from "clsx";
 import css from "./Contact.module.css";

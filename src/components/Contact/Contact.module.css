@@ -36,18 +36,22 @@
 
 .contactBtn {
   min-width: 65px;
-  transition: background-color 250ms linear;
+  border: 2px solid orangered;
+  transition: background-color 250ms linear, border-color 250ms linear;
 }
 
 .contactBtn:hover.contactBtnConfirm {
+  border-color: rgb(0, 0, 0);
   background-color: green;
 }
 
 .contactBtn:hover.contactBtnCancelBtn {
+  border-color: rgb(0, 0, 0);
   background-color: red;
 }
 
 .contactBtn:hover.contactBtnEdit {
+  border-color: rgb(0, 0, 0);
   background-color: yellow;
 }
 

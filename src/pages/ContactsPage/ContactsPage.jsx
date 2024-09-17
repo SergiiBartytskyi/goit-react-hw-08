@@ -9,7 +9,7 @@ import {
 } from "../../redux/contacts/slice";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import Loader from "../../components/Loader/Loader";
-import BaseModal from "../../components/Modal/BaseModal";
+import BaseModal from "../../components/BaseModal/BaseModal";
 import css from "./ContactsPage.module.css";
 
 const ContactsPage = () => {

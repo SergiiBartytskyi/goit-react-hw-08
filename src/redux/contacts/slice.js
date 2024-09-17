@@ -57,7 +57,7 @@ const slice = createSlice({
           (contact) => contact.id === actions.payload.id
         );
         if (idx !== -1) {
-          state.items[idx] = actions.payload; // Оновлюємо контакт
+          state.items[idx] = actions.payload;
         }
       })
       .addCase(editContact.rejected, handleRejected);
