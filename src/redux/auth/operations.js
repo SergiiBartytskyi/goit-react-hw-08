@@ -2,6 +2,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../../operationsAPI";
 import { setAuthHeader, clearAuthHeader } from "../../operationsAPI";
 
+/*
+ * POST @ /users/login
+ * body: { name, email, password }
+ */
 export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
