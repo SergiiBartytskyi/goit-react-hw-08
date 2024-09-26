@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { register, logIn, logOut, refreshUser } from "./operations";
 
 const handleFulfilled = (state, action) => {
@@ -20,8 +20,8 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(register.fulfilled, handleFulfilled)
-      .addCase(logIn.fulfilled, handleFulfilled)
+      // .addCase(register.fulfilled, handleFulfilled)
+      // .addCase(logIn.fulfilled, handleFulfilled)
       .addCase(logOut.fulfilled, (state) => {
         state.user = { name: null, email: null };
         state.token = null;
@@ -37,7 +37,11 @@ const slice = createSlice({
       })
       .addCase(refreshUser.rejected, (state) => {
         state.isRefreshing = false;
-      });
+      })
+      .addMatcher(
+        isAnyOf(register.fulfilled, logIn.fulfilled),
+        handleFulfilled
+      );
   },
 });
 
