@@ -1,7 +1,21 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { createSlice, isAnyOf, PayloadAction } from "@reduxjs/toolkit";
 import { register, logIn, logOut, refreshUser } from "./operations";
+import { IAuthState, IUser } from "./auth-types";
 
-const handleFulfilled = (state, action) => {
+const initialState: IAuthState = {
+  user: {
+    name: null,
+    email: null,
+  },
+  token: null,
+  isLoggedIn: false,
+  isRefreshing: false,
+};
+
+const handleFulfilled = (
+  state: IAuthState,
+  action: PayloadAction<{ user: IUser; token: string }>
+) => {
   state.user = action.payload.user;
   state.token = action.payload.token;
   state.isLoggedIn = true;
@@ -9,28 +23,17 @@ const handleFulfilled = (state, action) => {
 
 const slice = createSlice({
   name: "auth",
-  initialState: {
-    user: {
-      name: null,
-      email: null,
-    },
-    token: null,
-    isLoggedIn: false,
-    isRefreshing: false,
-  },
+  initialState,
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      // .addCase(register.fulfilled, handleFulfilled)
-      // .addCase(logIn.fulfilled, handleFulfilled)
-      .addCase(logOut.fulfilled, (state) => {
-        state.user = { name: null, email: null };
-        state.token = null;
-        state.isLoggedIn = false;
+      .addCase(logOut.fulfilled, () => {
+        return initialState;
       })
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, (state, action) => {
+      .addCase(refreshUser.fulfilled, (state, action: PayloadAction<IUser>) => {
         state.user = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;

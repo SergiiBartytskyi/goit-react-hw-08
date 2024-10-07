@@ -25,14 +25,7 @@ const LoginForm = () => {
   const userPassword = useId();
 
   const handleSubmit = (values, actions) => {
-    dispatch(logIn(values))
-      .unwrap()
-      .then(() => {
-        console.log("login success");
-      })
-      .catch(() => {
-        console.log("login error");
-      });
+    dispatch(logIn(values));
     actions.resetForm();
   };
 
