@@ -1,12 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IFilterState } from "./filter-types";
+
+const initialState: IFilterState = {
+  query: "",
+};
 
 const slice = createSlice({
   name: "filters",
-  initialState: {
-    query: "",
-  },
+  initialState,
   reducers: {
-    changeFilter: (state, action) => {
+    changeFilter: (state, action: PayloadAction<string>) => {
       state.query = action.payload;
     },
   },

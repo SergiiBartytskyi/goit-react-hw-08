@@ -1,1 +1,4 @@
-export const selectQueryFilter = (state) => state.filters.query;
+import { RootState } from "../store";
+
+export const selectQueryFilter = (state: RootState): string =>
+  state.filters.query;

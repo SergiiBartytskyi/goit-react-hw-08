@@ -1,6 +1,11 @@
+import { FC } from "react";
 import { Helmet } from "react-helmet-async";
 
-const DocumentTitle = ({ children }) => {
+interface IDocumentTitleProps {
+  children: string;
+}
+
+const DocumentTitle: FC<IDocumentTitleProps> = ({ children }) => {
   return (
     <Helmet>
       <title>{children}</title>

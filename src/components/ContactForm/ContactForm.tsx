@@ -1,10 +1,12 @@
+import { FC, useId } from "react";
+import { useAppDispatch } from "../../redux/hooks";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useDispatch } from "react-redux";
-import { addContact, editContact } from "../../redux/contacts/operations";
-import { useId } from "react";
 import * as Yup from "yup";
 import toast, { Toaster } from "react-hot-toast";
 import clsx from "clsx";
+import { addContact, editContact } from "../../redux/contacts/operations";
+import { IContactFormProps } from "./ContactForm.types";
+import { IContact } from "../../redux/contacts/contacts-types";
 import css from "./ContactForm.module.css";
 
 const FeedbackSchema = Yup.object().shape({
@@ -19,12 +21,15 @@ const FeedbackSchema = Yup.object().shape({
     .required("Required"),
 });
 
-const ContactForm = ({ initialValues, onFormSubmit }) => {
-  const dispatch = useDispatch();
+const ContactForm: FC<IContactFormProps> = ({
+  initialValues,
+  onFormSubmit,
+}) => {
+  const dispatch = useAppDispatch();
   const userNameId = useId();
-  const userNumber = useId();
+  const userNumberId = useId();
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = (values: IContact, actions: any) => {
     if (initialValues.id) {
       dispatch(editContact(values));
       toast.success("Contact successfully updated!");
@@ -59,12 +64,12 @@ const ContactForm = ({ initialValues, onFormSubmit }) => {
         </div>
 
         <div className={css.formWrap}>
-          <label htmlFor={userNumber}>Number</label>
+          <label htmlFor={userNumberId}>Number</label>
           <Field
             type="tel"
             className={css.formInput}
             name="number"
-            id={userNumber}
+            id={userNumberId}
           />
           <ErrorMessage
             className={css.formError}

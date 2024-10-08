@@ -1,13 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IContact } from "../contacts/contacts-types";
+import { IModalState } from "./modal-types";
 
+const initialState: IModalState = {
+  open: false,
+  editingContact: null,
+};
 const slice = createSlice({
   name: "modal",
-  initialState: {
-    open: false,
-    editingContact: null,
-  },
+  initialState,
   reducers: {
-    openModal: (state, action) => {
+    openModal: (state, action: PayloadAction<IContact | null>) => {
       state.open = true;
       state.editingContact = action.payload || null;
     },

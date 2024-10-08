@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { openModal, closeModal } from "../../redux/modal/slice";
 import {
   selectModalOpen,
@@ -22,18 +22,27 @@ const style = {
   p: 4,
 };
 
+const basicContactValue = {
+  name: "",
+  number: "",
+};
+
 const BaseModal = () => {
-  const dispatch = useDispatch();
-  const open = useSelector(selectModalOpen);
-  const editingContact = useSelector(selectEditingContact);
+  const dispatch = useAppDispatch();
+  const open = useAppSelector(selectModalOpen);
+  const editingContact = useAppSelector(selectEditingContact);
 
   const handleFormSubmit = () => {
     dispatch(closeModal());
   };
 
+  const handleOpenModal = () => {
+    dispatch(openModal(null));
+  };
+
   return (
     <div>
-      <button className={css.modalBtn} onClick={() => dispatch(openModal())}>
+      <button className={css.modalBtn} onClick={handleOpenModal}>
         Add Contact
       </button>
       <Modal
@@ -52,7 +61,7 @@ const BaseModal = () => {
           </Typography>
           <ContactForm
             onFormSubmit={handleFormSubmit}
-            initialValues={editingContact || { name: "", number: "" }}
+            initialValues={editingContact || basicContactValue}
           />
         </Box>
       </Modal>
