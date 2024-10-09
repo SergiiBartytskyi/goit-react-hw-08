@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "../../operationsAPI";
-import { setAuthHeader, clearAuthHeader } from "../../operationsAPI";
+import axios from "../../api/operationsAPI";
+import { setAuthHeader, clearAuthHeader } from "../../api/operationsAPI";
 import { RootState } from "../store";
 import { IAuthResponse, ICredentials, IUser } from "./auth-types";
 

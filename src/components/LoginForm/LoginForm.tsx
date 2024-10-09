@@ -1,9 +1,10 @@
-import { useDispatch } from "react-redux";
-import { useId } from "react";
+import { useAppDispatch } from "../../redux/hooks";
+import { FC, useId } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { logIn } from "../../redux/auth/operations";
 import css from "./LoginForm.module.css";
+import { ILoginFormValues } from "./LoginForm.types";
 
 const FeedbackSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required!"),
@@ -19,29 +20,31 @@ const FeedbackSchema = Yup.object().shape({
     .required("Required!"),
 });
 
-const LoginForm = () => {
-  const dispatch = useDispatch();
-  const userEmail = useId();
-  const userPassword = useId();
+const initialValues: ILoginFormValues = { email: "", password: "" };
 
-  const handleSubmit = (values, actions) => {
+const LoginForm: FC = () => {
+  const dispatch = useAppDispatch();
+  const userEmailId = useId();
+  const userPasswordId = useId();
+
+  const handleSubmit = (values: ILoginFormValues, actions: any) => {
     dispatch(logIn(values));
     actions.resetForm();
   };
 
   return (
     <Formik
-      initialValues={{ email: "", password: "" }}
+      initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={FeedbackSchema}
     >
       <Form className={css.formContainer}>
         <div className={css.formWrap}>
-          <label htmlFor={userEmail}>Email</label>
+          <label htmlFor={userEmailId}>Email</label>
           <Field
             type="email"
             name="email"
-            id={userEmail}
+            id={userEmailId}
             className={css.formInput}
           />
           <ErrorMessage
@@ -51,11 +54,11 @@ const LoginForm = () => {
           />
         </div>
         <div className={css.formWrap}>
-          <label htmlFor={userPassword}>Password</label>
+          <label htmlFor={userPasswordId}>Password</label>
           <Field
             type="password"
             name="password"
-            id={userPassword}
+            id={userPasswordId}
             className={css.formInput}
           />
           <ErrorMessage

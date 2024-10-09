@@ -13,6 +13,12 @@
   font-size: 25px;
 }
 
+.errorMessage {
+  color: red;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
 @media screen and (min-width: 375px) {
   .wrap {
     grid-template-columns: 1fr;

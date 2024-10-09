@@ -1,13 +1,15 @@
-import { useDispatch } from "react-redux";
+import { FC } from "react";
+import { useAppDispatch } from "../../redux/hooks";
 import { IoPersonOutline, IoPhonePortraitOutline } from "react-icons/io5";
 import { deleteContact } from "../../redux/contacts/operations";
 import { openModal } from "../../redux/modal/slice";
 import toast, { Toaster } from "react-hot-toast";
 import clsx from "clsx";
+import { IContactProps } from "./Contact.types";
 import css from "./Contact.module.css";
 
-const Contact = ({ contact }) => {
-  const dispatch = useDispatch();
+const Contact: FC<IContactProps> = ({ contact }) => {
+  const dispatch = useAppDispatch();
   const handleDelete = () => {
     toast(
       (t) => (
@@ -17,7 +19,7 @@ const Contact = ({ contact }) => {
             <button
               className={clsx(css.contactBtn, css.contactBtnConfirm)}
               onClick={() => {
-                dispatch(deleteContact(contact.id));
+                dispatch(deleteContact(contact.id!));
                 toast.success("You are successfully deleted contact!");
                 toast.dismiss(t.id);
               }}

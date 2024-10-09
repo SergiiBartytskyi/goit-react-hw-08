@@ -1,11 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
+import { FC } from "react";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logOut } from "../../redux/auth/operations";
 import { selectUser } from "../../redux/auth/selectors";
 import css from "./UserMenu.module.css";
 
-const UserMenu = () => {
-  const dispatch = useDispatch();
-  const user = useSelector(selectUser);
+const UserMenu: FC = () => {
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUser);
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className={css.wrapper}>

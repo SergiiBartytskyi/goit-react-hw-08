@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "../../operationsAPI";
+import axios from "../../api/operationsAPI";
 import { IContact } from "./contacts-types";
 import { RootState } from "../store";
 

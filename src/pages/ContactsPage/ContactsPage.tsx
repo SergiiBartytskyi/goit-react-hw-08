@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import DocumentTitle from "../../components/DocumentTitle";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import ContactList from "../../components/ContactList/ContactList";
 import { fetchContacts } from "../../redux/contacts/operations";
 import {
@@ -13,9 +13,9 @@ import BaseModal from "../../components/BaseModal/BaseModal";
 import css from "./ContactsPage.module.css";
 
 const ContactsPage = () => {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectContactsLoading);
-  const error = useSelector(selectContactsError);
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(selectContactsLoading);
+  const error = useAppSelector(selectContactsError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -31,8 +31,8 @@ const ContactsPage = () => {
         <BaseModal />
       </div>
       {isLoading && !error && <Loader />}
-      {error && <b>{error}</b>}
-      <ContactList />
+      {error && <p className={css.errorMessage}>Error: {error}</p>}
+      {!isLoading && !error && <ContactList />}
     </main>
   );
 };
