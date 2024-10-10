@@ -14,6 +14,7 @@ import authReducer from "./auth/slice";
 import contactsReducer from "./contacts/slice";
 import filterReducer from "./filters/slice";
 import modalReducer from "./modal/slice";
+import { IAuthState } from "./auth/auth-types";
 
 const authPersistConfig = {
   key: "auth",
@@ -21,9 +22,14 @@ const authPersistConfig = {
   whitelist: ["token"],
 };
 
+const persistedAuthReducer = persistReducer<IAuthState>(
+  authPersistConfig,
+  authReducer
+);
+
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
+    auth: persistedAuthReducer,
     contacts: contactsReducer,
     filters: filterReducer,
     modal: modalReducer,
