@@ -14,7 +14,7 @@
 }
 
 .errorMessage {
-  color: red;
+  color: var(--error-color);
   font-weight: bold;
   margin: 1rem 0;
 }

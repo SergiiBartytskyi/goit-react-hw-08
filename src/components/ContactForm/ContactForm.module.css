@@ -1,6 +1,6 @@
 .formContainer {
   padding: 10px;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid var(--base-color);
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -11,11 +11,17 @@
 .formWrap {
   display: flex;
   flex-direction: column;
+  transition: color 250ms linear;
+}
+
+.formWrap:hover label,
+.formWrap:focus label {
+  color: var(--main-color);
 }
 
 .formInput {
   height: 26px;
-  border: 2px solid gray;
+  border: 1px solid var(--border-color);
   transition: border-color 250ms linear;
   outline: none;
   border-radius: 4px;
@@ -25,38 +31,15 @@
 
 .formInput:hover,
 .formInput:focus {
-  border-color: rgb(0 255 55);
+  border-color: var(--main-color);
 }
 
 .formError {
-  color: red;
+  color: var(--error-color);
   margin-bottom: 16px;
   font-size: 14px;
 }
 
 .formBtn {
   align-self: center;
-  width: 80px;
-  border: 2px solid rgb(134, 134, 134);
-  transition: background-color 250ms linear, border-color 250ms linear;
-}
-
-.formBtn:hover.editBtn,
-.formBtn:focus.editBtn {
-  background-color: yellow;
-  border-color: rgb(0, 0, 0);
-}
-
-.formBtn:hover.addBtn,
-.formBtn:focus.addBtn {
-  background-color: rgb(0 255 55);
-  ;
-  border-color: rgb(0, 0, 0);
-}
-
-@media screen and (min-width: 768px) {
-  .formBtn {
-    width: 140px;
-    font-size: 18px;
-  }
 }

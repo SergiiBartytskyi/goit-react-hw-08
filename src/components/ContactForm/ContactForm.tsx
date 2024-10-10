@@ -3,7 +3,6 @@ import { useAppDispatch } from "../../redux/hooks";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import toast, { Toaster } from "react-hot-toast";
-import clsx from "clsx";
 import { addContact, editContact } from "../../redux/contacts/operations";
 import { IContactFormProps } from "./ContactForm.types";
 import { IContact } from "../../redux/contacts/contacts-types";
@@ -78,13 +77,7 @@ const ContactForm: FC<IContactFormProps> = ({
           />
         </div>
 
-        <button
-          type="submit"
-          className={clsx(css.formBtn, {
-            [css.editBtn]: initialValues.id,
-            [css.addBtn]: !initialValues.id,
-          })}
-        >
+        <button type="submit" className={css.formBtn}>
           {initialValues.id ? "Edit" : "Add Contact"}
         </button>
         <Toaster />

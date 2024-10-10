@@ -12,7 +12,7 @@
 }
 
 .title>span {
-  color: rgb(0 255 55);
+  color: var(--main-color);
   ;
 }
 

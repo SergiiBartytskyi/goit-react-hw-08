@@ -16,22 +16,9 @@
 }
 
 .username>span {
-  color: rgb(0 255 55);
+  color: var(--main-color);
   margin-left: 5px;
 }
-
-.btn {
-  border: 2px solid rgb(134, 134, 134);
-  transition: background-color 250ms linear, border-color 250ms linear;
-}
-
-.btn:hover,
-.btn:focus {
-  background-color: red;
-  ;
-  border-color: rgb(0, 0, 0);
-}
-
 
 @media screen and (min-width: 768px) {
   .wrapper {
@@ -39,10 +26,6 @@
   }
 
   .username {
-    font-size: 18px;
-  }
-
-  .btn {
     font-size: 18px;
   }
 }

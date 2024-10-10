@@ -40,7 +40,9 @@ const LoginForm: FC = () => {
     >
       <Form className={css.formContainer}>
         <div className={css.formWrap}>
-          <label htmlFor={userEmailId}>Email</label>
+          <label htmlFor={userEmailId} className={css.formLabel}>
+            Email
+          </label>
           <Field
             type="email"
             name="email"
@@ -54,7 +56,9 @@ const LoginForm: FC = () => {
           />
         </div>
         <div className={css.formWrap}>
-          <label htmlFor={userPasswordId}>Password</label>
+          <label htmlFor={userPasswordId} className={css.formLabel}>
+            Password
+          </label>
           <Field
             type="password"
             name="password"
