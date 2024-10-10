@@ -13,6 +13,10 @@
 .formWrap {
   display: flex;
   flex-direction: column;
+}
+
+.formLabel {
+  color: currentColor;
   transition: color 250ms linear;
 }
 

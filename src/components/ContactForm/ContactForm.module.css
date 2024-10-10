@@ -11,6 +11,10 @@
 .formWrap {
   display: flex;
   flex-direction: column;
+}
+
+label {
+  color: currentColor;
   transition: color 250ms linear;
 }
 
