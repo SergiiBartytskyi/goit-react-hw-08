@@ -1,5 +1,5 @@
 import { FC, useId } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { register } from "../../redux/auth/operations";
 import { useAppDispatch } from "../../redux/hooks";
@@ -37,7 +37,10 @@ const RegistrationForm: FC = () => {
   const userEmail = useId();
   const userPassword = useId();
 
-  const handleSubmit = (values: IRegistrationFormValues, actions: any) => {
+  const handleSubmit = (
+    values: IRegistrationFormValues,
+    actions: FormikHelpers<IRegistrationFormValues>
+  ) => {
     dispatch(register(values));
     actions.resetForm();
   };

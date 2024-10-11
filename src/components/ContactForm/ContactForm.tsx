@@ -1,6 +1,6 @@
 import { FC, useId } from "react";
 import { useAppDispatch } from "../../redux/hooks";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import toast, { Toaster } from "react-hot-toast";
 import { addContact, editContact } from "../../redux/contacts/operations";
@@ -28,7 +28,7 @@ const ContactForm: FC<IContactFormProps> = ({
   const userNameId = useId();
   const userNumberId = useId();
 
-  const handleSubmit = (values: IContact, actions: any) => {
+  const handleSubmit = (values: IContact, actions: FormikHelpers<IContact>) => {
     if (initialValues.id) {
       dispatch(editContact(values));
       toast.success("Contact successfully updated!");

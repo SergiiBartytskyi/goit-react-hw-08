@@ -1,6 +1,6 @@
 import { useAppDispatch } from "../../redux/hooks";
 import { FC, useId } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { logIn } from "../../redux/auth/operations";
 import css from "./LoginForm.module.css";
@@ -27,7 +27,10 @@ const LoginForm: FC = () => {
   const userEmailId = useId();
   const userPasswordId = useId();
 
-  const handleSubmit = (values: ILoginFormValues, actions: any) => {
+  const handleSubmit = (
+    values: ILoginFormValues,
+    actions: FormikHelpers<ILoginFormValues>
+  ) => {
     dispatch(logIn(values));
     actions.resetForm();
   };
