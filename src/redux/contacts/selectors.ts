@@ -14,7 +14,8 @@ export const selectContactsError = (state: RootState): string | null =>
 
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectQueryFilter],
-  (contacts: IContact[], query): IContact[] => {
+  (contacts: IContact[], query: string): IContact[] => {
+    if (!query) return contacts;
     return contacts.filter(
       (contact) =>
         contact.name?.toLowerCase().includes(query.toLowerCase()) ||
